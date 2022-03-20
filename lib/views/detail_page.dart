@@ -4,9 +4,16 @@ import 'package:travely_app/shared/themes.dart';
 
 class DetailPage extends StatelessWidget {
 
-  // final TravelPackage place;
+  final String name;
+  final String city;
+  final String imageUrl;
+  final double rating;
   
   const DetailPage({
+    required this.name,
+    required this.city,
+    required this.imageUrl,
+    this.rating = 0.0,
     Key? key,
     // required this.place
   }) : super(key: key);
@@ -22,7 +29,7 @@ class DetailPage extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              'assets/image1.png',
+              imageUrl,
             ),
           ),
         ),
@@ -81,7 +88,7 @@ class DetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Lake Ciliwung',
+                          name,
                           style: whiteTextStyle.copyWith(
                             fontSize: 24,
                             fontWeight: semiBold,
@@ -89,7 +96,7 @@ class DetailPage extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          'Tanggerang',
+                          city,
                           style: whiteTextStyle.copyWith(
                             fontSize: 16,
                             fontWeight: light,
@@ -115,7 +122,7 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        '4.5',
+                        rating.toString(),
                         style: whiteTextStyle.copyWith(
                           fontWeight: medium,
                         ),

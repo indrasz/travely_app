@@ -25,7 +25,12 @@ class DestinationAwardCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => DetailPage(),
+              builder: (context) => DetailPage(
+                name: name, 
+                city: city,
+                imageUrl: imageUrl,
+                rating: rating,
+              ),
             )
           );
         },
@@ -46,13 +51,6 @@ class DestinationAwardCard extends StatelessWidget {
                 imageUrl
               ),
             ),
-            boxShadow: [
-              BoxShadow(
-                color: blackColor.withOpacity(0.5),
-                blurRadius: 50,
-                offset: Offset(0, 10),
-              ),
-            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

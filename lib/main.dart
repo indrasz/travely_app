@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travely_app/views/home_page.dart';
 import 'package:travely_app/views/main_page.dart';
 
 void main() => runApp(MyApp());
