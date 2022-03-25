@@ -29,7 +29,7 @@ var travelPackageList = [
       duration: 3,
       temperature: 28,
       rating: 4.8,
-      imageUrl: 'assets/image1'),
+      imageUrl: 'assets/image1.png'),
   TravelPackage(
       name: 'Alimatha island',
       location: 'Maldives',
@@ -39,7 +39,7 @@ var travelPackageList = [
       duration: 3,
       temperature: 28,
       rating: 4.8,
-      imageUrl: 'assets/image2'),
+      imageUrl: 'assets/image2.png'),
   TravelPackage(
       name: 'Peyto lake',
       location: 'Alberta, Canada',
@@ -49,5 +49,27 @@ var travelPackageList = [
       duration: 3,
       temperature: 28,
       rating: 4.8,
-      imageUrl: 'assets/image2'),
+      imageUrl: 'assets/image3.png'),
+
+       TravelPackage(
+      name: 'Peyto lake',
+      location: 'Alberta, Canada',
+      description:
+          'Kelingking Beach is one of the most famous spot of Bali. Major travel sites use its photo to advertise Bali and even sometimes Indonesia.The place is indeed very spectacular and really amazing. The rock of Kelingking Beach looks a little like the backbone of a dinosaur that would drink in the sea.',
+      price: 260,
+      duration: 3,
+      temperature: 28,
+      rating: 4.8,
+      imageUrl: 'assets/image1.png'),
+
+      TravelPackage(
+      name: 'Peyto lake',
+      location: 'Alberta, Canada',
+      description:
+          'Kelingking Beach is one of the most famous spot of Bali. Major travel sites use its photo to advertise Bali and even sometimes Indonesia.The place is indeed very spectacular and really amazing. The rock of Kelingking Beach looks a little like the backbone of a dinosaur that would drink in the sea.',
+      price: 260,
+      duration: 3,
+      temperature: 28,
+      rating: 4.8,
+      imageUrl: 'assets/image2.png'),
 ];

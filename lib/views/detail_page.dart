@@ -4,23 +4,15 @@ import 'package:travely_app/shared/themes.dart';
 
 class DetailPage extends StatelessWidget {
 
-  final String name;
-  final String city;
-  final String imageUrl;
-  final double rating;
-  
+  final TravelPackage travelPackage;
+
   const DetailPage({
-    required this.name,
-    required this.city,
-    required this.imageUrl,
-    this.rating = 0.0,
+    required this.travelPackage,
     Key? key,
-    // required this.place
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     Widget backgroundImage() {
       return Container(
         width: double.infinity,
@@ -29,7 +21,7 @@ class DetailPage extends StatelessWidget {
           image: DecorationImage(
             fit: BoxFit.cover,
             image: AssetImage(
-              imageUrl,
+              travelPackage.imageUrl,
             ),
           ),
         ),
@@ -88,7 +80,7 @@ class DetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          name,
+                          travelPackage.name,
                           style: whiteTextStyle.copyWith(
                             fontSize: 24,
                             fontWeight: semiBold,
@@ -96,7 +88,7 @@ class DetailPage extends StatelessWidget {
                           overflow: TextOverflow.ellipsis,
                         ),
                         Text(
-                          city,
+                          travelPackage.location,
                           style: whiteTextStyle.copyWith(
                             fontSize: 16,
                             fontWeight: light,
@@ -122,7 +114,7 @@ class DetailPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        rating.toString(),
+                        travelPackage.rating.toString(),
                         style: whiteTextStyle.copyWith(
                           fontWeight: medium,
                         ),
@@ -271,7 +263,7 @@ class DetailPage extends StatelessWidget {
                   //   title: 'Book Now',
                   //   onPressed: () {
                   //     Navigator.push(
-                  //       context, 
+                  //       context,
                   //       MaterialPageRoute(
                   //         builder: (context)=> ChooseSeatPage(),
                   //       )
@@ -300,5 +292,4 @@ class DetailPage extends StatelessWidget {
       ),
     );
   }
-  
 }

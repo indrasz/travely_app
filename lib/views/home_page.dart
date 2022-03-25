@@ -9,40 +9,56 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget header() {
-      return Container(
-        margin: EdgeInsets.only(
-          left: defaultMargin,
-          right: defaultMargin,
-          top: 30,
-        ),
-        child: Row(
+    PreferredSizeWidget appBar() {
+      return AppBar(
+        backgroundColor: whiteColor,
+        centerTitle: false,
+        title: Row(
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(
-                    height: 6,
+            Container(
+              width: 103,
+              height: 29,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_home_active.png',
                   ),
-                  Text(
-                    'Where to fly today?',
-                    style: greyTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: light,
-                    ),
+                ),
+              ),
+            ),
+            Spacer(),
+            Container(
+              width: 24,
+              height: 24,
+              margin: EdgeInsets.only(left: 16),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_discovery.png',
                   ),
-                ],
+                ),
               ),
             ),
             Container(
-              width: 60,
-              height: 60,
+              width: 24,
+              height: 24,
+              margin: EdgeInsets.only(left: 16),
               decoration: BoxDecoration(
-                shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/user_icon.png',
+                    'assets/icon_bookmark.png',
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: 24,
+              height: 24,
+              margin: EdgeInsets.only(left: 16),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(
+                    'assets/icon_user.png',
                   ),
                 ),
               ),
@@ -52,30 +68,109 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    Widget bonusCard() {
+    Widget body(BuildContext context) {
+      return ListView.builder(itemBuilder: (context, index) {
+        final TravelPackage travelPackage = travelPackageList[index];
+        return InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return DetailPage(travelPackage: travelPackage);
+              }));
+            },
+          child:  Container(
+          // margin: EdgeInsets.only(top: 5),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Column(
+                children: <Widget> [
+                  DestinationAwardCard(
+                    name: travelPackage.name,
+                    city: travelPackage.location,
+                    imageUrl: travelPackage.imageUrl,
+                    rating: travelPackage.rating,
+                  ),
+                  
+                ],
+              ),
+            ),
+          ),
+        );
+      }, itemCount: travelPackageList.length,);
+    }
+
+    Widget bottomNavBar() {
       return Container(
-        margin: EdgeInsets.only(top: 30),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: [
-              DestinationAwardCard(
-                name: 'Kelingking beach',
-                city: 'Bali, Indonesia',
-                imageUrl: 'assets/image1.png',
-                rating: 4.8,
+        color: whiteColor,
+        padding: EdgeInsets.only(
+          top: 1,
+        ),
+        child: Container(
+          padding: EdgeInsets.only(
+            top: 10,
+          ),
+          color: whiteColor,
+          child: BottomNavigationBar(
+            backgroundColor: whiteColor,
+            type: BottomNavigationBarType.fixed,
+            showSelectedLabels: true,
+            selectedItemColor: blackColor,
+            elevation: 1,
+            items: [
+              BottomNavigationBarItem(
+                label: 'home',
+                icon: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/icon_home_active.png',
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              DestinationAwardCard(
-                name: 'Alimatha island',
-                city: 'Maldives',
-                imageUrl: 'assets/image2.png',
-                rating: 4.7,
+              BottomNavigationBarItem(
+                label: 'discovery',
+                icon: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/icon_discovery.png',
+                      ),
+                    ),
+                  ),
+                ),
               ),
-              DestinationAwardCard(
-                name: 'Peyto lake',
-                city: 'Alberta, Canada',
-                imageUrl: 'assets/image3.png',
-                rating: 4.8,
+              BottomNavigationBarItem(
+                label: 'bookmark',
+                icon: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/icon_bookmark.png',
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              BottomNavigationBarItem(
+                label: 'profile',
+                icon: Container(
+                  width: 24,
+                  height: 24,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        'assets/icon_user.png',
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
@@ -83,58 +178,12 @@ class HomePage extends StatelessWidget {
       );
     }
 
-    // Widget listPopulation() {
-    //   return ListView.builder(
-    //     itemBuilder: (context, index) {
-    //       final TravelPackage place = travelPackageList[index];
-
-    //       return InkWell(
-    //         onTap: () {
-    //           Navigator.push(context, MaterialPageRoute(builder: (context) {
-    //             return DetailPage();
-    //           }));
-    //         },
-    //         child: Card(
-    //           child: Row(
-    //             crossAxisAlignment: CrossAxisAlignment.start,
-    //             children: <Widget>[
-    //               Expanded(
-    //                 flex: 1,
-    //                 child: Image.asset(place.imageUrl),
-    //               ),
-    //               Expanded(
-    //                 flex: 2,
-    //                 child: Padding(
-    //                   padding: const EdgeInsets.all(8.0),
-    //                   child: Column(
-    //                     crossAxisAlignment: CrossAxisAlignment.start,
-    //                     children: <Widget>[
-    //                       Text(
-    //                         place.name,
-    //                         style: TextStyle(fontSize: 16.0),
-    //                       ),
-    //                       SizedBox(
-    //                         height: 10,
-    //                       ),
-    //                       Text(place.location),
-    //                     ],
-    //                   ),
-    //                 ),
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //       );
-    //     },
-    //     itemCount: travelPackageList.length,
-    //   );
-    // }
-
-    return ListView(
-      children: [
-        header(),
-        bonusCard(),
-      ],
+    return Scaffold(
+      backgroundColor: whiteColor,
+      appBar: appBar(),
+      body: body(context),
+      bottomNavigationBar: bottomNavBar(),
     );
+    
   }
 }
