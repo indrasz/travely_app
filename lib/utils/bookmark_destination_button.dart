@@ -21,7 +21,7 @@ class _BookmarkButtonState extends State<BookmarkButton> {
       child: Container(
         width: 40,
         height: 40,
-        margin: EdgeInsets.only(right: 6, top: 15),
+        margin: const EdgeInsets.only(right: 6, top: 15),
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage(

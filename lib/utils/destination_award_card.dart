@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travely_app/shared/themes.dart';
 import 'package:travely_app/utils/bookmark_destination_button.dart';
-import 'package:travely_app/views/detail_page.dart';
 
 class DestinationAwardCard extends StatelessWidget {
   final String name;
@@ -29,7 +28,7 @@ class DestinationAwardCard extends StatelessWidget {
         ),
         width: 350,
         height: 211,
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(18),
           image: DecorationImage(
@@ -55,7 +54,7 @@ class DestinationAwardCard extends StatelessWidget {
                
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 70,
             ),
             Text(
@@ -67,7 +66,7 @@ class DestinationAwardCard extends StatelessWidget {
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.place,
                   color: secondaryGreyColor,
                   size: 16.0,

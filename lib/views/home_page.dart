@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             Container(
               width: 103,
               height: 29,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
                     'assets/logo.png',
@@ -42,7 +42,6 @@ class HomePage extends StatelessWidget {
               }));
             },
           child:  Container(
-          // margin: EdgeInsets.only(top: 5),
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -65,11 +64,11 @@ class HomePage extends StatelessWidget {
     Widget bottomNavBar() {
       return Container(
         color: whiteColor,
-        padding: EdgeInsets.only(
+        padding: const EdgeInsets.only(
           top: 1,
         ),
         child: Container(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: 10,
           ),
           color: whiteColor,
@@ -85,9 +84,9 @@ class HomePage extends StatelessWidget {
                 icon: Container(
                   width: 24,
                   height: 24,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
+                      image: const AssetImage(
                         'assets/icon_home_active.png',
                       ),
                     ),
@@ -99,9 +98,9 @@ class HomePage extends StatelessWidget {
                 icon: Container(
                   width: 24,
                   height: 24,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: AssetImage(
+                      image: const AssetImage(
                         'assets/icon_discovery.png',
                       ),
                     ),
@@ -113,8 +112,8 @@ class HomePage extends StatelessWidget {
                 icon: Container(
                   width: 24,
                   height: 24,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
+                  decoration: const BoxDecoration(
+                    image: const DecorationImage(
                       image: AssetImage(
                         'assets/icon_bookmark.png',
                       ),
@@ -127,7 +126,7 @@ class HomePage extends StatelessWidget {
                 icon: Container(
                   width: 24,
                   height: 24,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage(
                         'assets/icon_user.png',
