@@ -9,6 +9,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     PreferredSizeWidget appBar() {
       return AppBar(
         backgroundColor: whiteColor,
@@ -21,44 +22,7 @@ class HomePage extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/icon_home_active.png',
-                  ),
-                ),
-              ),
-            ),
-            Spacer(),
-            Container(
-              width: 24,
-              height: 24,
-              margin: EdgeInsets.only(left: 16),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/icon_discovery.png',
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              width: 24,
-              height: 24,
-              margin: EdgeInsets.only(left: 16),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/icon_bookmark.png',
-                  ),
-                ),
-              ),
-            ),
-            Container(
-              width: 24,
-              height: 24,
-              margin: EdgeInsets.only(left: 16),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/icon_user.png',
+                    'assets/logo.png',
                   ),
                 ),
               ),
