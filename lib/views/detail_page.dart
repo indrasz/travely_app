@@ -3,7 +3,6 @@ import 'package:travely_app/model/travel_package.dart';
 import 'package:travely_app/shared/themes.dart';
 
 class DetailPage extends StatelessWidget {
-
   final TravelPackage travelPackage;
 
   const DetailPage({
@@ -17,6 +16,47 @@ class DetailPage extends StatelessWidget {
       return Container(
         width: double.infinity,
         height: 450,
+        child: Column(
+          children: [
+            Container(
+              margin: EdgeInsets.only(
+                top: 20,
+                left: defaultMargin,
+                right: defaultMargin,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
+                      width: 40,
+                      height: 40,
+                      margin: const EdgeInsets.only(right: 6, top: 15),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('assets/back_button.png'),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: 40,
+                    height: 40,
+                    margin: const EdgeInsets.only(right: 6, top: 15),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/share_button.png'),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
@@ -28,108 +68,16 @@ class DetailPage extends StatelessWidget {
       );
     }
 
-    Widget customShadow() {
-      return Container(
-        width: double.infinity,
-        height: 214,
-        margin: EdgeInsets.only(top: 236),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              whiteColor.withOpacity(0),
-              Colors.black.withOpacity(0.95),
-            ],
-          ),
-        ),
-      );
-    }
-
     Widget content() {
       return Container(
-        width: double.infinity,
-        margin: EdgeInsets.symmetric(
-          horizontal: defaultMargin,
-        ),
+        margin: EdgeInsets.only(top: 330),
         child: Column(
           children: [
-            // NOTE: EMBLEM
-            Container(
-              width: 108,
-              height: 24,
-              margin: EdgeInsets.only(
-                top: 30,
-              ),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(
-                    'assets/rating.png',
-                  ),
-                ),
-              ),
-            ),
-
-            // NOTE: TITLE
-            Container(
-              margin: EdgeInsets.only(top: 256),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          travelPackage.name,
-                          style: whiteTextStyle.copyWith(
-                            fontSize: 24,
-                            fontWeight: semiBold,
-                          ),
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        Text(
-                          travelPackage.location,
-                          style: whiteTextStyle.copyWith(
-                            fontSize: 16,
-                            fontWeight: light,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 20,
-                        height: 20,
-                        margin: EdgeInsets.only(right: 2),
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage(
-                              'assets/rating.png',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        travelPackage.rating.toString(),
-                        style: whiteTextStyle.copyWith(
-                          fontWeight: medium,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-
             // NOTE: DESCRIPTION
             Container(
               width: double.infinity,
-              margin: EdgeInsets.only(top: 30),
-              padding: EdgeInsets.symmetric(
+              margin: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 30,
               ),
@@ -140,6 +88,34 @@ class DetailPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  Text(
+                    travelPackage.name,
+                    style: blackTextStyle.copyWith(
+                      fontSize: 24,
+                      fontWeight: semiBold,
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.place,
+                        color: secondaryGreyColor,
+                        size: 16.0,
+                      ),
+                      Text(
+                        travelPackage.location,
+                        style: greyTextStyle.copyWith(
+                          fontSize: 14,
+                          fontWeight: medium,
+                        ),
+                      )
+                    ],
+                  ),
+
+                  const SizedBox(
+                    height: 10,
+                  ),
                   // NOTE: ABOUT
                   Text(
                     'About',
@@ -148,18 +124,18 @@ class DetailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Text(
-                    'Berada di jalur jalan provinsi yang menghubungkan Denpasar Singaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                    travelPackage.description,
                     style: blackTextStyle.copyWith(
                       height: 2,
                     ),
                   ),
 
                   // NOTE: PHOTOS
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -169,7 +145,7 @@ class DetailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -187,7 +163,7 @@ class DetailPage extends StatelessWidget {
                   ),
 
                   // NOTE: INTERESTS
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
@@ -197,7 +173,7 @@ class DetailPage extends StatelessWidget {
                       fontWeight: semiBold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 6,
                   ),
                   Row(
@@ -210,7 +186,7 @@ class DetailPage extends StatelessWidget {
                       // ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -230,7 +206,7 @@ class DetailPage extends StatelessWidget {
             // NOTE: PRICE & BOOK BUTTON
             Container(
               width: double.infinity,
-              margin: EdgeInsets.symmetric(vertical: 30),
+              margin: const EdgeInsets.symmetric(vertical: 30),
               child: Row(
                 children: [
                   // NOTE: PRICE
@@ -245,7 +221,7 @@ class DetailPage extends StatelessWidget {
                             fontWeight: medium,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 5,
                         ),
                         Text(
@@ -285,7 +261,6 @@ class DetailPage extends StatelessWidget {
         child: Stack(
           children: [
             backgroundImage(),
-            customShadow(),
             content(),
           ],
         ),

@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
         ),
       );
     }
-
+    
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: appBar(),
