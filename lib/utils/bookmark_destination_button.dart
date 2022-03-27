@@ -18,14 +18,17 @@ class _BookmarkButtonState extends State<BookmarkButton> {
           isBookmark = !isBookmark;
         });
       },
-      child: Container(
-        width: 40,
-        height: 40,
-        margin: const EdgeInsets.only(right: 6, top: 15),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(
-              isBookmark ? 'assets/bookmark_active.png' : 'assets/bookmark.png',
+      child: SafeArea(
+        child: Container(
+          width: 40,
+          height: 40,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                isBookmark
+                    ? 'assets/bookmark_active.png'
+                    : 'assets/bookmark.png',
+              ),
             ),
           ),
         ),

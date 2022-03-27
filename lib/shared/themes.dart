@@ -8,6 +8,7 @@ const Color primaryGreyColor = Color(0xfffBEBFCA);
 const Color secondaryGreyColor = Color(0xffE5E5E5);
 const Color blackColor = Color(0xff222222);
 const Color whiteColor = Color(0xffFFFFFF);
+const Color yellowColor = Color(0xffFFC907);
 
 TextStyle blackTextStyle = GoogleFonts.poppins(
   color: blackColor,

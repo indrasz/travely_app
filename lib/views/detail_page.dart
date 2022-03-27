@@ -32,10 +32,10 @@ class DetailPage extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      width: 40,
-                      height: 40,
-                      margin: const EdgeInsets.only(right: 6, top: 15),
-                      decoration: BoxDecoration(
+                      width: 43,
+                      height: 43,
+                      margin: const EdgeInsets.only(top: 15),
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                           image: AssetImage('assets/back_button.png'),
                         ),
@@ -43,10 +43,10 @@ class DetailPage extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 40,
-                    height: 40,
-                    margin: const EdgeInsets.only(right: 6, top: 15),
-                    decoration: BoxDecoration(
+                    width: 43,
+                    height: 43,
+                    margin: const EdgeInsets.only(top: 15),
+                    decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/share_button.png'),
                       ),
@@ -114,8 +114,80 @@ class DetailPage extends StatelessWidget {
                   ),
 
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        children: [
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/rating.png'),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            travelPackage.rating.toString(),
+                            style: blackTextStyle.copyWith(
+                              fontSize: 20,
+                              fontWeight: bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/duration.png'),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            '${travelPackage.duration.toString()}h',
+                            style: blackTextStyle.copyWith(
+                              fontSize: 20,
+                              fontWeight: bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Container(
+                            width: 30,
+                            height: 30,
+                            decoration: const BoxDecoration(
+                              image: DecorationImage(
+                                image: AssetImage('assets/weather.png'),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            '${travelPackage.temperature.toString()}\u00B0C',
+                            style: blackTextStyle.copyWith(
+                              fontSize: 20,
+                              fontWeight: bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  const SizedBox(
+                    height: 20,
+                  ),
+
                   // NOTE: ABOUT
                   Text(
                     'About',
@@ -133,72 +205,6 @@ class DetailPage extends StatelessWidget {
                       height: 2,
                     ),
                   ),
-
-                  // NOTE: PHOTOS
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Photos',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: semiBold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Row(
-                    children: [
-                      // PhotoItem(
-                      //   imageUrl: 'assets/image_photo1.png',
-                      // ),
-                      // PhotoItem(
-                      //   imageUrl: 'assets/image_photo2.png',
-                      // ),
-                      // PhotoItem(
-                      //   imageUrl: 'assets/image_photo3.png',
-                      // ),
-                    ],
-                  ),
-
-                  // NOTE: INTERESTS
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    'Interests',
-                    style: blackTextStyle.copyWith(
-                      fontSize: 16,
-                      fontWeight: semiBold,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Row(
-                    children: [
-                      // InterestItem(
-                      //   text: 'Kids Park',
-                      // ),
-                      // InterestItem(
-                      //   text: 'Honor Bridge',
-                      // ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  Row(
-                    children: [
-                      // InterestItem(
-                      //   text: 'City Museum',
-                      // ),
-                      // InterestItem(
-                      //   text: 'Central Mall',
-                      // ),
-                    ],
-                  ),
                 ],
               ),
             ),
@@ -206,47 +212,42 @@ class DetailPage extends StatelessWidget {
             // NOTE: PRICE & BOOK BUTTON
             Container(
               width: double.infinity,
-              margin: const EdgeInsets.symmetric(vertical: 30),
+              margin: const EdgeInsets.only(bottom: 30),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  // NOTE: PRICE
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'IDR 2.500.000',
-                          style: blackTextStyle.copyWith(
-                            fontSize: 18,
-                            fontWeight: medium,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 5,
-                        ),
-                        Text(
-                          'per orang',
-                          style: greyTextStyle.copyWith(
-                            fontWeight: light,
-                          ),
-                        ),
-                      ],
+                  Container(
+                    width: 55,
+                    height: 55,
+                    margin: EdgeInsets.only(left: 20),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage('assets/bookmark_detail_active.png'),
+                      ),
                     ),
                   ),
-
-                  // NOTE: BOOK BUTTON
-                  // CustomButton(
-                  //   title: 'Book Now',
-                  //   onPressed: () {
-                  //     Navigator.push(
-                  //       context,
-                  //       MaterialPageRoute(
-                  //         builder: (context)=> ChooseSeatPage(),
-                  //       )
-                  //     );
-                  //   },
-                  //   width: 170,
-                  // ),
+                  Container(
+                    width: 280,
+                    height: 55,
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    child: TextButton(
+                      onPressed: () {},
+                      style: TextButton.styleFrom(
+                        backgroundColor: blackColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                      ),
+                      child: Text(
+                        'Book now',
+                        style: whiteTextStyle.copyWith(
+                          fontSize: 18,
+                          fontWeight: medium,
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                 return DetailPage(travelPackage: travelPackage);
               }));
             },
-          child:  Container(
+          child: Container(
             child: SingleChildScrollView(
               scrollDirection: Axis.vertical,
               child: Column(
@@ -51,8 +51,7 @@ class HomePage extends StatelessWidget {
                     city: travelPackage.location,
                     imageUrl: travelPackage.imageUrl,
                     rating: travelPackage.rating,
-                  ),
-                  
+                  ),   
                 ],
               ),
             ),
@@ -113,7 +112,7 @@ class HomePage extends StatelessWidget {
                   width: 24,
                   height: 24,
                   decoration: const BoxDecoration(
-                    image: const DecorationImage(
+                    image: DecorationImage(
                       image: AssetImage(
                         'assets/icon_bookmark.png',
                       ),
