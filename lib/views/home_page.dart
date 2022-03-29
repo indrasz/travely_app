@@ -85,7 +85,7 @@ class HomePage extends StatelessWidget {
                   height: 24,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: const AssetImage(
+                      image: AssetImage(
                         'assets/icon_home_active.png',
                       ),
                     ),
@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
                   height: 24,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
-                      image: const AssetImage(
+                      image: AssetImage(
                         'assets/icon_discovery.png',
                       ),
                     ),
