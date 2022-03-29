@@ -70,7 +70,7 @@ class DetailPage extends StatelessWidget {
 
     Widget content() {
       return Container(
-        margin: EdgeInsets.only(top: 330),
+        margin: const EdgeInsets.only(top: 330),
         child: Column(
           children: [
             // NOTE: DESCRIPTION
