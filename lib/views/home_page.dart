@@ -9,7 +9,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     PreferredSizeWidget appBar() {
       return AppBar(
         backgroundColor: whiteColor,
@@ -33,31 +32,39 @@ class HomePage extends StatelessWidget {
     }
 
     Widget body(BuildContext context) {
-      return ListView.builder(itemBuilder: (context, index) {
-        final TravelPackage travelPackage = travelPackageList[index];
-        return InkWell(
+      return ListView.builder(
+        itemBuilder: (context, index) {
+          final TravelPackage travelPackage = travelPackageList[index];
+          return InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return DetailPage(travelPackage: travelPackage);
-              }));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return DetailPage(travelPackage: travelPackage);
+                  },
+                ),
+              );
             },
-          child: Container(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              child: Column(
-                children: <Widget> [
-                  DestinationAwardCard(
-                    name: travelPackage.name,
-                    city: travelPackage.location,
-                    imageUrl: travelPackage.imageUrl,
-                    rating: travelPackage.rating,
-                  ),   
-                ],
+            child: Container(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Column(
+                  children: <Widget>[
+                    DestinationAwardCard(
+                      name: travelPackage.name,
+                      city: travelPackage.location,
+                      imageUrl: travelPackage.imageUrl,
+                      rating: travelPackage.rating,
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        );
-      }, itemCount: travelPackageList.length,);
+          );
+        },
+        itemCount: travelPackageList.length,
+      );
     }
 
     Widget bottomNavBar() {
@@ -139,13 +146,12 @@ class HomePage extends StatelessWidget {
         ),
       );
     }
-    
+
     return Scaffold(
       backgroundColor: whiteColor,
       appBar: appBar(),
       body: body(context),
       bottomNavigationBar: bottomNavBar(),
     );
-    
   }
 }

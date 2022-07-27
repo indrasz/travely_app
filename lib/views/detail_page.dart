@@ -220,7 +220,7 @@ class DetailPage extends StatelessWidget {
                   Container(
                     width: 55,
                     height: 55,
-                    margin: EdgeInsets.only(left: 20),
+                    margin: const EdgeInsets.only(left: 20),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('assets/bookmark_detail_active.png'),
@@ -230,7 +230,7 @@ class DetailPage extends StatelessWidget {
                   Container(
                     width: 280,
                     height: 55,
-                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    margin: const EdgeInsets.symmetric(horizontal: 15),
                     child: TextButton(
                       onPressed: () {},
                       style: TextButton.styleFrom(
